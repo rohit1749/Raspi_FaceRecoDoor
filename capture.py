@@ -10,7 +10,7 @@ HEIGHT=1.4  #font_scale
 TEXTCOLOR=(255,0,0)  #BGR- BLUE
 BOXCOLOR=(0,0,255) #BGR- RED
 WEIGHT=2  #font-thickness
-FACE_DETECTOR=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+FACE_DETECTOR=cv2.CascadeClassifier('haarcascade_frontalface_default.xml') #load haar cascade classifier
 
 # For each person, enter one numeric face id
 face_id = input('\n Enter User-id and press enter: ')

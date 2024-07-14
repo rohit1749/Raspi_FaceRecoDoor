@@ -10,6 +10,7 @@ HEIGHT=1.4  #font_scale
 TEXTCOLOR=(255,0,0)  #BGR- BLUE
 BOXCOLOR=(0,0,255) #BGR- RED
 WEIGHT=2  #font-thickness
+BOXPIXEL=4
 FACE_DETECTOR=cv2.CascadeClassifier('haarcascade_frontalface_default.xml') #load haar cascade classifier
 
 # For each person, enter one numeric face id
@@ -36,8 +37,8 @@ while True:
 
     # Convert frame from BGR to grayscale  to reduce complexity of code
     frameGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    # Create a DS faces- array with 4 elements- x,y coordinates (top-left corner), width and height
-    faces = FACE_DETECTOR.detectMultiScale( # detectMultiScale has 4 parameters return coordinates of bounding box
+    # detectMultiScale() provides the coordinates of the top left corner , the width and the height.
+    faces = FACE_DETECTOR.detectMultiScale( 
             frameGray,      # The grayscale frame to detect
             scaleFactor=1.1,# how much the image size is reduced at each image scale-10% reduction
             minNeighbors=5, # how many neighbors each candidate rectangle should have to retain it
@@ -45,7 +46,7 @@ while True:
     )
     for (x,y,w,h) in faces:
         # Create a bounding box across the detected face
-        cv2.rectangle(frame, (x,y), (x+w,y+h), BOXCOLOR, 4) # 5 parameters - frame, topleftcoords,bottomrightcooords,boxcolor,thickness
+        cv2.rectangle(frame, (x,y), (x+w,y+h), BOXCOLOR,BOXPIXEL) # 5 parameters - frame, topleftcoords,bottomRtcoords,boxcolor,thickness
         count += 1 # increment count
 
          # if dataset folder doesnt exist create:

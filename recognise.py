@@ -52,7 +52,7 @@ while True:
         #create a bounding box across the detected face
         cv2.rectangle(frame, (x,y), (x+w,y+h), boxColor, 3) #5 parameters - frame, topleftcoords,bottomrightcooords,boxcolor,thickness
         
-        #recognizer.predict() method takes the ROI as input and
+        #recognizer.predict() method takes the ROI as input and  comment
         #returns the predicted label (id) and confidence score for the given face region.
         id, confidence = recognizer.predict(frameGray[y:y+h,x:x+w])
         

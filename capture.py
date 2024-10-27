@@ -3,7 +3,7 @@ import os
 from picamera2 import Picamera2
 
 # Constants
-COUNT_LIMIT = 20
+COUNT_LIMIT = 10
 POS=(400,35)  # counter top right
 FONT=cv2.FONT_HERSHEY_TRIPLEX #font type for text overlay
 HEIGHT=1.4  #font_scale
@@ -22,7 +22,7 @@ cam = Picamera2()
 ## Set the resolution of the camera preview
 cam.preview_configuration.main.size = (640,360)
 cam.preview_configuration.main.format = "RGB888"# 24 bits per pixel ordered BGR
-cam.preview_configuration.controls.FrameRate=5
+cam.preview_configuration.controls.FrameRate=8
 cam.preview_configuration.align()
 cam.configure("preview")
 cam.start()
